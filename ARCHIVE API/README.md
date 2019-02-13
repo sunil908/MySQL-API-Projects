@@ -42,10 +42,10 @@ PARAMETERS: srcjson, archjson
 							    ]
 						}'
 
-srcjson_structure: {
-			"operation": 	type= string, 
-					mandatory=yes, 
-					default=archive, 
+"srcjson_structure: {
+			"operation": 	type= string,
+					mandatory=yes,
+					default=archive,
 					possible_val = delete,archive
 					comment='currently not implemented. describes operation to be performed'
 			"archlevel": 	type= string, 
@@ -95,12 +95,12 @@ srcjson_structure: {
 									}
 					 comment='provide the relationship path between archive table to master table. It can be empty if the archive table and master reference table is same. For ex. archive table='SUBJECT' , master table = 'STUDY'. Then provide relationship path between SUBJECT table to the STUDY table for archiving the target records in SUBJECT.'
 							}
-
+"
 archjson:  
 	   -> Accepts json as string
 	   -> Maximum limit of the string is limited to 32000 characters
 
-Example: 
+Example
 
 archjson:      {
 				"schema":"gdpr",
