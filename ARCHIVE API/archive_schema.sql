@@ -1,19 +1,24 @@
 /*
 Description : 
 =============
-This procedure runs the complete algorithm for archiving on a given schema with data model defined in rel_ex. It takes care of the table and forming the relationship based on the path.
+This procedure runs the complete algorithm for archiving on a given schema with data model defined in rel_ex. It takes care of the
+table and forming the relationship based on the path.
 
 Depending implementation: 
 ==========================
-Finding the topology order of all the nodes (tables) in the schema for which archiving is to be performed. Workaround is a column topology order given in table rel_ex that is manually fed currently.
+Finding the topology order of all the nodes (tables) in the schema for which archiving is to be performed. Workaround is a column 
+topology order given in table rel_ex that is manually fed currently.
 
 Error handling. There needs number of custom error raised in the current code.
 
 Prerequisite data requirements:
 ================================
-rel_ex : Table contaniing Relationship Data CREATE TABLE rel_ex (ReferenceID, Tablename, ColumnName, ReferencedTableName, ReferencedColumnName, TopologyOrderNum ). You can alternatively build a table view with the foreign and reference key using system table in Mysql.
+rel_ex : Table contaniing Relationship Data CREATE TABLE rel_ex (ReferenceID, Tablename, ColumnName, ReferencedTableName, 
+ReferencedColumnName, TopologyOrderNum ). You can alternatively build a table view with the foreign and reference key using 
+system table in Mysql.
 
-log : Create a log table for tracing the operations and validatity. You can also comment all the insert into log table if you wish. CREATE TABLE log (message varchar(10000));
+log : Create a log table for tracing the operations and validatity. You can also comment all the insert into log table if you wish. 
+CREATE TABLE log (message varchar(10000));
 
 archive schema: It is expected that archive schema and tables already exist. This parameter is passed and lo
 
@@ -22,14 +27,15 @@ Module dependencies
 
 This contains calls to other procedures:
 
-[Procedure 1]: dijResolve - Resolves the path between any two table (nodes) with defined reference relationship. This uses dijkstra shortest route algorithm to resolve the path.
+[Procedure 1]: dijResolve - Resolves the path between any two table (nodes) with defined reference relationship. This uses 
+dijkstra shortest route algorithm to resolve the path.
+
 [Procedure 2]: archive_table - archives a table and target records between the master table and target archive table
 
-
-# Example call:  Use like order_sales (classicmodels) schema from mysql sample database. It can be downloaded easily. 
-
+Example call:  
+=============
+Use like order_sales (classicmodels) schema from mysql sample database. It can be downloaded easily. 
 call archive_schema('','customers','customernumber','181','gdpr_archive');
-
 SELECT * from logtable;
 */
 
