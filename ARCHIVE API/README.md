@@ -2,7 +2,9 @@
 
 MAIN PROCEDURE CALL: archive_schema
 
-PURPOSE: API to archive desired records across all of the schema to target archive schema. It requires details of the table and extraction conditions based on which it will select the records to be archived to target schema (archjson). This expects a formatted JSON as described below to move the data from source to target archive table. 
+PURPOSE: API to archive desired records across all of the schema to target archive schema. It requires details of the master or seed table with key column and extraction condition on this table. The API will select the records across the schema using relationship built within relationship constraint (to be provided by caller) to target archive schema (archjson). This expects a formatted JSON as described below to move the data from source to target archive table. 
+
+It uses dijkstra's shortest route algorithm to travese across all tables and archive the relationship records in cascading fashion. It takes care of the topology order to make sure parent records are deleted before any child is archived.
 
 PARAMETERS: srcjson, archjson
 
