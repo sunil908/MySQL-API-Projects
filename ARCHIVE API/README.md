@@ -1,6 +1,7 @@
 # ARCHIVING API
 
 MAIN PROCEDURE CALL: archive_schema
+
 PURPOSE: API to archive desired records across all of the schema to target archive schema. It requires details of the table and extraction conditions based on which it will select the records to be archived to target schema (archjson). This expects a formatted JSON as described below to move the data from source to target archive table. 
 
 PARAMETERS: srcjson, archjson
