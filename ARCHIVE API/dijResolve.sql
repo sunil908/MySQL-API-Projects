@@ -1,6 +1,6 @@
 /*
 This file contains:
-[Procedure 1]: dijResolve - Resolves the path between any two table (nodes) with defined reference relationship
+[Procedure 1]: dijResolve - Resolves the path between any two table (nodes) with defined reference relationship. This uses shortest route algorithm to resolve the path between any two nodes.
 */
 
 DROP PROCEDURE IF EXISTS dijResolve;
