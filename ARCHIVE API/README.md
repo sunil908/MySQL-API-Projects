@@ -12,34 +12,8 @@ PARAMETERS: srcjson, archjson
 			    -> Maximum limit of the string is limited to 32000 characters
 			    -> structure is described in later section
 			    -> value to be passed with single quote escape string. This is applicable for filter values where applicable. For ex. "''testvalue''" = 'testvalue'
-	Example srcjson:
-				'{
-					"operation": "delete",
-                    "archlevel":"study",
-					"sourceschema":"gdpr",
-                    "archtabledetails": {"tablename":"orderdetails",
-					 "keycolumn":["order","orderlinenumber"]
-					 "filtercond": {
-								"productcode":[18,23],
-								"quantityOrdered":[39,41]
-							} 
-					}, 
-					"masterkeydetails": {"keytable":"customers" , "keycolumn":"customernumber", "keyvalue":"181"}, 
-					"tablerelationpath":[
-								{ "righttable": "orders",
-								  "rightkeys": ["customernumber"], 
-								  "lefttable": "customers",
-								  "leftkeys": ["customernumber"]
-								},
-								{ "righttable": "orders", 
-								  "rightkeys": ["ordernumber"], 
-								  "lefttable":  "orderdetails",
-								  "leftkeys": ["orderNumber"]
-								}    
-							    ]
-						}'
-
-"srcjson_structure: {
+	
+srcjson_structure: {
 			"operation": 	type= string,
 					mandatory=yes,
 					default=archive,
@@ -61,7 +35,7 @@ PARAMETERS: srcjson, archjson
 					possible_val = value_from_masterkeycolumn
 					comment='provides the master reference value used for filtering to arrive at the archive records.
 			}
-"
+
 archjson:  
 	   -> Accepts json as string
 	   -> Maximum limit of the string is limited to 32000 characters
