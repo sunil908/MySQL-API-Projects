@@ -17,6 +17,7 @@ PARAMETERS: srcjson, archjson
 			    -> value to be passed with single quote escape string. This is applicable for filter values where applicable. For ex. "''testvalue''" = 'testvalue'
 	
 srcjson_structure: {
+
 			"operation": 	type= string,
 					mandatory=yes,
 					default=archive,
