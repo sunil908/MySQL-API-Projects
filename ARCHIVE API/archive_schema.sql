@@ -34,7 +34,7 @@ dijkstra shortest route algorithm to resolve the path.
 
 Example call:  
 =============
-Use like order_sales (classicmodels) schema from mysql sample database. It can be downloaded easily. 
+Use for example, order_sales table (from classicmodels) schema from mysql sample database. It can be downloaded easily. 
 call archive_schema('','customers','customernumber','181','gdpr_archive');
 SELECT * from logtable;
 */
